@@ -27,7 +27,7 @@ mongoose.connect(process.env.MONGODB_CONNECTION_STRING, {
 
   
 app.use(cors({
-    origin:'http://localhost:4000'
+    origin:'http://localhost:5000'
 }));
 app.use('/images',express.static('images'))
 
@@ -43,7 +43,7 @@ app.post('/Images', multerC , async (req,res)=>{
   fs.unlinkSync(req.files[0].path)
   res.json({
     msg:'done',
-    pics:pics
+    pics:pics 
   })
 })
 app.get ('/Images',(req,res)=>{
@@ -51,5 +51,5 @@ app.get ('/Images',(req,res)=>{
     res.json(images)
   })
 })
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`the server is running on port : ${PORT}`));
