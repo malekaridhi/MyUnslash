@@ -1,6 +1,9 @@
 const express = require("express");
 const mongoose= require("mongoose");
 const bodyParser = require('body-parser');
+const cloudinary = require("cloudinary")
+const image =require ('../database/data')
+const multerC = require ('../multer')
 const cors = require('cors');
 var path = require('path');
 require("dotenv").config();
@@ -25,6 +28,13 @@ mongoose.connect(process.env.MONGODB_CONNECTION_STRING, {
 app.use(cors({
     origin:'http://localhost:4000'
 }));
+app.use(express.static('images'))
 
+app.post('/Images', multerC ,  (req,res)=>{
+  console.log(req.files)
+  res.json({
+    msg:'done'
+  })
+})
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`the server is running on port : ${PORT}`));
