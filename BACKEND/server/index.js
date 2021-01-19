@@ -1,11 +1,12 @@
 const express = require("express");
 const mongoose= require("mongoose");
 const bodyParser = require('body-parser');
-const cloudinary = require("cloudinary")
 const image =require ('../database/data')
 const multerC = require ('../multer')
+const cloudinaryC  = require ('../cloudinary')
 const cors = require('cors');
-var path = require('path');
+const path = require('path');
+const fs = require('fs');
 require("dotenv").config();
 const app = express();
 
@@ -28,12 +29,26 @@ mongoose.connect(process.env.MONGODB_CONNECTION_STRING, {
 app.use(cors({
     origin:'http://localhost:4000'
 }));
-app.use(express.static('images'))
+app.use('/images',express.static('images'))
 
-app.post('/Images', multerC ,  (req,res)=>{
-  console.log(req.files)
+app.post('/Images', multerC , async (req,res)=>{
+  console.log(req.files[0])
+  const result =await cloudinaryC.uploads(req.files[0].path)
+  const imageinfo ={
+    Name : req.files[0].originalname,
+    url: result.url
+  }
+  const pics= new image (imageinfo)
+  pics.save()
+  fs.unlinkSync(req.files[0].path)
   res.json({
-    msg:'done'
+    msg:'done',
+    pics:pics
+  })
+})
+app.get ('/Images',(req,res)=>{
+  image.find().then(images=>{
+    res.json(images)
   })
 })
 const PORT = process.env.PORT || 4000;
