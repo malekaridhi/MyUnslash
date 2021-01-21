@@ -20,14 +20,14 @@ mongoose.connect(process.env.MONGODB_CONNECTION_STRING, {
     useCreateIndex: true,
   }, (err) => {
     if (err) throw err;
-    console.log("MONGO connected on port 4000")
+    console.log("MONGO connected on port 5050")
   }
   );
   
 
   
 app.use(cors({
-    origin:'http://localhost:5000'
+    origin:'http://localhost:5050'
 }));
 app.use('/images',express.static('images'))
 
@@ -62,6 +62,6 @@ app.post ('/search',(req,res)=>{
     res.json(images)
   })
 })
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5050;
 app.listen(PORT, () => console.log(`the server is running on port : ${PORT}`));
 //array of data loope 

@@ -14,11 +14,10 @@ interface imageResults {
 
 export class ServicesService {
   Images: Observable<imageResults[]>;
+  arr :Array<object>
   constructor(private http: HttpClient) { }
   getimage(){
-    return this.http.get
-    ('http://localhost:5000/Images') 
-   
+    return this.http.get<any>
+    ('http://localhost:5050/Images')
   }
-  
 }
