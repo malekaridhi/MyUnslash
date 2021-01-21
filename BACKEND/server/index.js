@@ -51,5 +51,16 @@ app.get ('/Images',(req,res)=>{
     res.json(images)
   })
 })
+app.delete ('/Images',(req,res)=>{
+ 
+  image.deleteOne({ Name:'53447_a.jpg'}).then(images=>{
+    res.json(images)
+  })
+})
+app.post ('/search',(req,res)=>{
+  image.findOne({ Name:'53447_a.jpg'}).then(images=>{
+    res.json(images)
+  })
+})
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`the server is running on port : ${PORT}`));
