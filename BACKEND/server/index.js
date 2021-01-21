@@ -64,3 +64,4 @@ app.post ('/search',(req,res)=>{
 })
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`the server is running on port : ${PORT}`));
+//array of data loope 

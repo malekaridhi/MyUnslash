@@ -14,7 +14,12 @@ export class GalleryComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.ServicesService.getimage().subscribe((res: any) => {
+      console.log(res);
+   })
     
   }
-  
+  ngAfterContentInit():void{
+    
+  }
 }
