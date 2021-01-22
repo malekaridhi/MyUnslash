@@ -8,13 +8,13 @@ import { map, catchError } from 'rxjs/operators';
   styleUrls: ['./gallery.component.css']
 })
 export class GalleryComponent implements OnInit {
-  @Input() imagesurl: any[] = []
+ // @Input() imagesurl: any[] = []
   
   constructor(
     private ServicesService: ServicesService,
    
   ) { }
-
+  imagesurl = []
   ngOnInit(): void {
     this.ServicesService.getimage().toPromise().then(data => {
       console.log(data);

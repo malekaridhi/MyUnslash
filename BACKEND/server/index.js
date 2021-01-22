@@ -58,6 +58,8 @@ app.delete ('/Images',(req,res)=>{
   })
 })
 app.post ('/search',(req,res)=>{
+  
+  console.log(res.body.Name)
   image.findOne({ Name:'53447_a.jpg'}).then(images=>{
     res.json(images)
   })
