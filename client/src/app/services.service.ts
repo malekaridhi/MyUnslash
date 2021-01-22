@@ -19,13 +19,12 @@ export class ServicesService {
     return this.http.get<any>
     ('http://localhost:5050/Images')
   }
-  searchimages(search : ImageResults ) {
-  
+  searchimages( name) {
+    return this.http.get 
+  (`http://localhost:5050/search'?name=${name}`)
+  }
+  sendimage(Image: FormData){
     return this.http.post
-    <{
-      success : boolean,
-       msg : string
-    }>
-  ('http://localhost:5050/search', search)
+    ('http://localhost:5050/Images',Image)   
   }
 }

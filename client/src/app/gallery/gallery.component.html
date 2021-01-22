@@ -1,11 +1,29 @@
+
+
 <div class="cont">
 <div class ='container' style="
 padding: 1rem 0; display: flex;
     margin-left: -30px;
-   ;flex-wrap: wrap-reverse ;width: 1320px;">
+   ;flex-wrap: wrap-reverse ;width: 1320px;">   
+<div  *ngFor="let image of imagesurl"  >
+  <img  id="imge" class ='img'src='{{image}}' style="cursor: zoom-in ;--layout-breakpoint-sm: 576px;width: 250px;border-radius: 16px;margin: 10px 10px 10px 10px;margin-left: 50px;  "  />
+  
+    <style>
+      #imge[_ngcontent-pnu-c26]:hover{
+        background: rgba(0, 0, 0, .3);;
     
-<div  *ngFor="let image of imagesurl" >
-    <img class ='img'src='{{image}}' style="cursor: zoom-in ;--layout-breakpoint-sm: 576px;width: 250px;border-radius: 16px;margin: 10px 10px 10px 10px;margin-left: 50px;"/>
+    }
+    </style>
+    
+      
+    
+   
+    <div>
+      <button></button>
+    </div>
+     
   </div>
 </div>
 </div>
+
+ 

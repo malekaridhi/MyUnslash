@@ -58,9 +58,9 @@ app.delete ('/Images',(req,res)=>{
   })
 })
 app.post ('/search',(req,res)=>{
-  
-  console.log(res.body.Name)
-  image.findOne({ Name:'53447_a.jpg'}).then(images=>{
+  const pic=req.body
+  console.log(req.body)
+  image.findOne({ Name:'quote.jpg'}).then(images=>{
     res.json(images)
   })
 })
