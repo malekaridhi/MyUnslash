@@ -18,6 +18,7 @@ export class GalleryComponent implements OnInit {
   ) { }
   imagesurl = []
   imageName = []
+  name;
   ngOnInit(): void {
     this.ServicesService.getimage().toPromise().then(data => {
       console.log(data);
@@ -37,10 +38,11 @@ export class GalleryComponent implements OnInit {
       
       for (var i=0;i<data.length;i++){
         this.imageName.push(data[i].Name)
-        console.log(this.imageName)
-        
-        
+        console.log(this.imageName) 
       }
    }) 
+  }
+  ondel(name:string){
+    this.ServicesService.deleteimages(name)
   }
 }

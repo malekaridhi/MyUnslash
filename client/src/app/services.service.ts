@@ -27,8 +27,10 @@ export class ServicesService {
     return this.http.post
     ('http://localhost:5050/Images',Image)   
   }
- deleteimages( name) {
+ deleteimages( name:string) {
     return this.http.delete 
-  ('http://localhost:5050/Images')
+  ('http://localhost:5050/Images'+name).subscribe(()=>{  
+    console.log("Deleted");  
+});  
 }
 }
