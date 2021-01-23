@@ -8,6 +8,7 @@ import{DialogComponent}from '../dialog/dialog.component'
   styleUrls: ['./toolbar.component.css']
 })
 export class ToolbarComponent implements OnInit {
+  imageresult:ImageResults []
   Name: string;
   constructor(
     private ServicesService: ServicesService,

@@ -27,4 +27,8 @@ export class ServicesService {
     return this.http.post
     ('http://localhost:5050/Images',Image)   
   }
+ deleteimages( name) {
+    return this.http.delete 
+  ('http://localhost:5050/Images')
+}
 }

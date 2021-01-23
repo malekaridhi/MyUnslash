@@ -12,12 +12,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http'
 import { DialogComponent } from './dialog/dialog.component'
 import {MatDialogModule} from '@angular/material/dialog';
+import { SearchPipe } from './search.pipe';
+import{FormsModule} from '@angular/forms'
 @NgModule({
   declarations: [
     AppComponent,
     GalleryComponent,
     ToolbarComponent,
     DialogComponent,
+    SearchPipe,
     
   ],
   imports: [
@@ -30,7 +33,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatCardModule,
     MatDialogModule,
     HttpClientModule,
-    
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

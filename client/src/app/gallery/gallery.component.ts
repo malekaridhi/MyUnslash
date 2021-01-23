@@ -1,9 +1,11 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { ServicesService } from '../services.service';
 import { map, catchError } from 'rxjs/operators';
+import { ViewEncapsulation } from '@angular/core'
 /*import { Router } from '@angular/router';*/
 @Component({
   selector: 'app-gallery',
+  encapsulation: ViewEncapsulation.None,
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.css']
 })
